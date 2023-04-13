@@ -6,14 +6,17 @@ import {ModalService} from "../../services/modal.service";
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent {
+export class ModalComponent{
 
-  @Input() modalID = '';
-  constructor(public modalService: ModalService) {
+  @Input() modalID: string = '';
+  constructor(public modalService: ModalService, ) {
+
 
   }
 
   closeModal() {
     this.modalService.toggleModal(this.modalID);
   }
+
+
 }
