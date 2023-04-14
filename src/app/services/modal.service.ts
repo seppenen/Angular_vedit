@@ -22,7 +22,6 @@ private modals:IModal[] = [];
     modal.visible = !modal.visible;
   }
   }
-
   unregister(id:string) {
     this.modals = this.modals.filter(x => x.id !== id);
   }
