@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
-import {FormControl, FormGroup} from "@angular/forms";
 import IUser from "../models/user.model";
 @Injectable({
   providedIn: 'root'
@@ -19,11 +18,14 @@ export class AuthService {
     if(!userData.password){
       throw new Error('Password is required!')
     }
-    await this.auth.createUserWithEmailAndPassword(
+    const user = await this.auth.createUserWithEmailAndPassword(
       userData.email,
       userData.password
     )
-    await this.usersCollection.add({
+    if(!user.user){
+      throw new Error('User not found!')
+    }
+    await this.usersCollection.doc(user.user.uid).set({
       name: userData.name,
       email: userData.email,
       age: userData.age,
