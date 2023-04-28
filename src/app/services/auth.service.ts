@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
 import IUser from "../models/user.model";
-import {map, Observable} from "rxjs";
+import {map, Observable, tap} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class AuthService {
 
   constructor(private auth: AngularFireAuth, private db: AngularFirestore) {
     this.usersCollection = db.collection('users');
-    this.isAuthenticated$ = this.auth.authState.pipe(
+    this.isAuthenticated$ = this.auth.user.pipe(
       map(user => Boolean(user))
     )
   }
 
-  public async createUser(userData:IUser){
+   async createUser(userData:IUser){
 
     if(!userData.password){
       throw new Error('Password is required!')
@@ -35,6 +35,9 @@ export class AuthService {
       age: userData.age,
       phone: userData.phone
     })
-
   }
+
+   async login(email: string, password: string) {
+       await this.auth.signInWithEmailAndPassword(email, password)
+   }
 }

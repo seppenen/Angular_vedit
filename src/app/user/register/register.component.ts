@@ -51,7 +51,6 @@ export class RegisterComponent {
      await this.auth.createUser(this.registerForm.value as IUser)
     }
     catch (e: any | AuthError) {
-      console.log(e.message as string)
       this.alertMsg = 'Error creating account!'
       this.alertColor = 'red'
       this.isActive = true;
