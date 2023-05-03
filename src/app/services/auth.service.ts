@@ -22,9 +22,6 @@ export class AuthService {
     this.isAuthenticatedDelay$ = this.isAuthenticated$.pipe(
       delay(1000)
     )
-    this.isAuthenticatedDelay$ = this.isAuthenticated$.pipe(
-      delay(1000)
-    )
   }
 
    async createUser(userData:IUser){
