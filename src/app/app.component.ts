@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalService} from "./services/modal.service";
+import {AuthService} from "./services/auth.service";
 
 
 @Component({
@@ -9,9 +10,8 @@ import {ModalService} from "./services/modal.service";
 })
 export class AppComponent implements OnInit {
 
-  showModal = true
 
-  constructor(public modalService: ModalService) {
+  constructor(public modalService: ModalService, public auth:AuthService) {
 
   }
 

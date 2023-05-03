@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {AuthService} from '../services/auth.service';
 import {ModalService} from "../services/modal.service";
-
 
 
 @Component({
