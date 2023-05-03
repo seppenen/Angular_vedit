@@ -11,10 +11,10 @@ import {AuthService} from "./services/auth.service";
 export class AppComponent implements OnInit {
 
 
-  constructor(public modalService: ModalService, public auth:AuthService) {
+  constructor( public auth:AuthService) {
 
   }
-
+// todo: Delete
   ngOnInit(): void {
 
 

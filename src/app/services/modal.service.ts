@@ -25,6 +25,7 @@ private modals:IModal[] = [];
   unregister(id:string) {
     this.modals = this.modals.filter(x => x.id !== id);
   }
+
   register(id:string) {
     this.modals.push({id, visible: false});
 

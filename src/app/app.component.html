@@ -28,6 +28,7 @@
     </div>
   </div>
 </section>
+<app-auth *ngIf="!(auth.isAuthenticatedDelay$ | async)" ></app-auth>
 
 <!-- Main Content -->
 <section class="container mx-auto ">
