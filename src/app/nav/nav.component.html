@@ -8,14 +8,16 @@
       <!-- Primary Navigation -->
       <ul class="flex flex-row mt-1">
         <!-- Navigation Links -->
-        <li *ngIf="!(authService.isAuthenticated$ | async); else authLinks ">
+        <li *ngIf="!(authService.isAuthenticatedDelay$ | async); else authLinks ">
           <a class="px-2" href="#"
              (click)="openModal($event)">
             Login / Register
           </a>
         </li>
         <ng-template #authLinks>
-
+          <li>
+            <a class="px-2" href="#" (click)="logout($event)">Logout</a>
+          </li>
         <li>
           <a class="px-2" href="#">Manage</a>
         </li>
@@ -24,8 +26,10 @@
         </li>
         </ng-template>
         <li>
-          <a class="px-2" href="about.html">About</a>
+          <a class="px-2" href="#">About</a>
         </li>
+
+
       </ul>
       <!-- Language Switcher -->
       <ul class="flex flex-row ml-auto">

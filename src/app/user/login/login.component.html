@@ -3,16 +3,16 @@
   {{alertMsg}}
 </app-alert>
 <!-- Login Form -->
-<form [formGroup]="loginForm" (ngSubmit)="submit()">
+<form autocomplete="on" [formGroup]="loginForm" (ngSubmit)="submit()">
   <!-- Email -->
   <div class="mb-3">
     <label class="inline-block mb-2">Email</label>
-    <app-input [control]="email" placeholder="Email"/>
+    <app-input [autocompleteName]="'email'" [control]="email" placeholder="Email"/>
   </div>
   <!-- Password -->
   <div class="mb-3">
     <label class="inline-block mb-2">Password</label>
-   <app-input [type]="'password'" [control]="password" placeholder="Password"/>
+   <app-input [autocompleteName]="'current-password'" [type]="'password'" [control]="password" placeholder="Password"/>
   </div>
   <button [disabled]="loginForm.invalid || !isActive" type="submit"
           class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition

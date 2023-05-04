@@ -1,5 +1,5 @@
 
-<input [formControl]="control" [dropSpecialCharacters]=false [mask]="format" [placeholder]="placeholder" [type]="type"
+<input autocomplete="{{autocompleteName}}" [formControl]="control" [dropSpecialCharacters]=false [mask]="format" [placeholder]="placeholder" [type]="type"
    class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
     duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
    placeholder="Enter Name"  />
@@ -9,7 +9,8 @@
   <p *ngIf="control.errors?.email" class="text-red-400">Email not valid</p>
   <p *ngIf="control.errors?.pattern " class="text-red-400">Not valid format</p>
   <p *ngIf="control.errors?.password" class="text-red-400">Password must be at least 6 characters</p>
-  <p *ngIf="control.errors?.passwordMatch" class="text-red-400">Passwords do not match</p>
+  <p *ngIf="control.errors?.passwordsDontMatch" class="text-red-400">Passwords do not match</p>
+  <p *ngIf="control.errors?.controlNotFound" class="text-red-400">Field cannot be empty</p>
   <p *ngIf="control.errors?.phone" class="text-red-400">Phone number do not match</p>
 </ng-container>
 

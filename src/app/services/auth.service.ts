@@ -10,20 +10,14 @@ import {delay, map, Observable, tap} from "rxjs";
 export class AuthService {
 
   private usersCollection: AngularFirestoreCollection<IUser>
-  public isAuthenticated$: Observable<boolean>
   public isAuthenticatedDelay$: Observable<boolean>
 
 
   constructor(private auth: AngularFireAuth, private db: AngularFirestore) {
     this.usersCollection = db.collection('users');
-    this.isAuthenticated$ = this.auth.user.pipe(
+    this.isAuthenticatedDelay$ = this.auth.user.pipe(
+      delay(1000),
       map(user => !!user)
-      )
-    this.isAuthenticatedDelay$ = this.isAuthenticated$.pipe(
-      delay(1000)
-    )
-    this.isAuthenticatedDelay$ = this.isAuthenticated$.pipe(
-      delay(1000)
     )
   }
 

@@ -7,33 +7,33 @@
     <!-- Name -->
     <div class="mb-3">
       <label class="inline-block mb-2">Name</label>
-      <app-input placeholder="Enter Name" [control]="name"></app-input>
+      <app-input [autocompleteName]="'name'" placeholder="Enter Name" [control]="name"></app-input>
     </div>
     <!-- Email -->
     <div class="mb-3">
       <label class="inline-block mb-2">Email</label>
-      <app-input placeholder="Enter Email" [control]="email"></app-input>
+      <app-input [autocompleteName]="'email'" placeholder="Enter Email" [control]="email"></app-input>
     </div>
     <!-- Age -->
     <div class="mb-3">
       <label class="inline-block mb-2">Age</label>
-      <app-input placeholder="Age" [control]="age"></app-input>
+      <app-input [autocompleteName]="'age'" placeholder="Age" [control]="age"></app-input>
 
     </div>
     <!-- Password -->
     <div class="mb-3">
       <label class="inline-block mb-2">Password</label>
-      <app-input [type]="'password'" placeholder="Password" [control]="password"></app-input>
+      <app-input [autocompleteName]="'new-password'" [type]="'password'" placeholder="New password" [control]="password"></app-input>
     </div>
     <!-- Confirm Password -->
     <div class="mb-3">
       <label class="inline-block mb-2">Confirm Password</label>
-      <app-input [type]="'password'" placeholder="Confirm password" [control]="passwordConfirmation"></app-input>
+      <app-input [autocompleteName]="'confirm-password'" [type]="'password'" placeholder="Confirm password" [control]="passwordConfirmation"></app-input>
     </div>
     <!-- Phone Number -->
     <div class="mb-3">
       <label class="inline-block mb-2">Phone Number</label>
-      <app-input placeholder="Phone" [control]="phone" format="+000 000 000 000"></app-input>
+      <app-input [autocompleteName]="'phone'" placeholder="Phone" [control]="phone" format="+000 000 000 000"></app-input>
     </div>
     <button [disabled]="registerForm.invalid || !isActive" type="submit"
             class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
@@ -41,4 +41,3 @@
       Submit
     </button>
   </form>
-

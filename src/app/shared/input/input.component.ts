@@ -12,6 +12,7 @@ export class InputComponent {
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
   @Input() format: string = '';
+  @Input() autocompleteName: string = '';
 
 
 }

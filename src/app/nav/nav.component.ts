@@ -1,6 +1,8 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import { Component} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {ModalService} from "../services/modal.service";
+import {AngularFireAuth} from "@angular/fire/compat/auth";
+
 
 
 @Component({
@@ -10,7 +12,7 @@ import {ModalService} from "../services/modal.service";
 })
 export class NavComponent {
 
-  constructor(public modalService: ModalService, public authService: AuthService) {
+  constructor(public modalService: ModalService, public authService: AuthService, private afAuth: AngularFireAuth) {
 
   }
 
@@ -20,4 +22,8 @@ export class NavComponent {
   }
 
 
+  async logout($event: Event) {
+    $event.preventDefault();
+    await this.afAuth.signOut();
+  }
 }

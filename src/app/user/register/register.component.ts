@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {AuthError} from "firebase/auth";
 import IUser from "../../models/user.model";
+import {RegisterValidators} from "../validators/register-validators";
 
 
 @Component({
@@ -18,7 +19,6 @@ export class RegisterComponent {
   isActive = true;
 
   constructor(private auth: AuthService) {
-
   }
 
 
@@ -35,9 +35,10 @@ export class RegisterComponent {
     email: this.email,
     age: this.age,
     password: this.password,
+    passwordConfirmation: this.passwordConfirmation,
     phone: this.phone
 
-})
+}, [RegisterValidators.match('password', 'passwordConfirmation')])
 
 
   async submit() {
